@@ -1,5 +1,5 @@
 # PythonSQLGenerator
-Simple Package for generating SQL from Dictionary Objects
+Simple Package for generating SQL from Dictionary Objects. Helpful when dealing with large tables with lots of fields.
 
 Example Insert:
 ```python
