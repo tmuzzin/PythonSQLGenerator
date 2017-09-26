@@ -1,7 +1,8 @@
 import re
 
 
-class DBTools():
+class PythonSQLGenerator():
+    
     @staticmethod
     def dict_to_insert(table, fields):
         """ Function for generating an SQL insert from a dict structure
