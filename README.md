@@ -32,7 +32,7 @@ cursor = db.cursor()
 my_field_dictionary = {
  'last_name': 'Smith'
 }
-my_where_dictionarty = {
+my_where_dictionary = {
   'id': 1
 }
 #  returns SQL string execute.
@@ -51,10 +51,10 @@ db = MySQLdb.connect(HOSTNAME, USERNAME, PASSWORD, DB_NAME)
 # prepare a cursor object using cursor() method
 cursor = db.cursor()
 
-my_where_dictionarty = {
+my_where_dictionary = {
   'id': 1
 }
 #  returns SQL string execute.
-qry = PythonSQLGenerator.delete('my_table_name', my_where_dictionarty)
+qry = PythonSQLGenerator.delete('my_table_name', my_where_dictionary)
 cursor.execute(qry)
 ```
