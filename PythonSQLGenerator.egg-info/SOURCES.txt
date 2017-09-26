@@ -1,0 +1,6 @@
+setup.py
+PythonSQLGenerator/__init__.py
+PythonSQLGenerator.egg-info/PKG-INFO
+PythonSQLGenerator.egg-info/SOURCES.txt
+PythonSQLGenerator.egg-info/dependency_links.txt
+PythonSQLGenerator.egg-info/top_level.txt
