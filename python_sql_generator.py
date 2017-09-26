@@ -2,9 +2,9 @@ import re
 
 
 class PythonSQLGenerator():
-    
+
     @staticmethod
-    def dict_to_insert(table, fields):
+    def insert(table, fields):
         """ Function for generating an SQL insert from a dict structure
         Args:
             table (str): The name of the table to be inserted into
@@ -13,7 +13,7 @@ class PythonSQLGenerator():
             string: returns a complete SQL string that can then be executed.
 
             For example you can return the string and run a db execute.
-            qry = DBTools.dict_to_insert('my_table_name', my_dict)
+            qry = PythonSQLGenerator.insert('my_table_name', my_dict)
             cursor.execute(qry)
         """
         k = ""
@@ -34,8 +34,8 @@ class PythonSQLGenerator():
 
 
     @staticmethod
-    def dict_to_update(table, fields, where={}):
-        """ Function for generating an SQL insert from a dict structure
+    def update(table, fields, where={}):
+        """ Function for generating an SQL update from a dict structure
         Args:
             table (str): The name of the table to be updated
             fields (dict): A dict that contains column names and the values to be inserted
@@ -44,7 +44,7 @@ class PythonSQLGenerator():
             string: returns a complete SQL string that can then be executed.
 
             For example you can return the string and run a db execute.
-            qry = DBTools.dict_to_update('my_table_name', my_dict, my_where_dict)
+            qry = PythonSQLGenerator.update('my_table_name', my_dict, my_where_dict)
             cursor.execute(qry)
         """
         qry = ""
@@ -72,8 +72,8 @@ class PythonSQLGenerator():
 
 
     @staticmethod
-    def dict_to_delete(table, where={}):
-        """ Function for generating an SQL insert from a dict structure
+    def delete(table, where={}):
+        """ Function for generating an SQL delete from a dict structure
         Args:
             table (str): The name of the table to be deleted from
             where (dict): A dict that contains the where key and values
@@ -81,7 +81,7 @@ class PythonSQLGenerator():
             string: returns a complete SQL string that can then be executed.
 
             For example you can return the string and run a db execute.
-            qry = DBTools.dict_to_update('my_table_name', my_dict, my_where_dict)
+            qry = PythonSQLGenerator.delete('my_table_name', my_where_dict)
             cursor.execute(qry)
         """
         qry = ""
