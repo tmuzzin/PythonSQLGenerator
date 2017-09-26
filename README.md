@@ -16,6 +16,8 @@ my_field_dictionary = {
 }
 #  returns SQL string execute.
 qry = PythonSQLGenerator.insert('my_table_name', my_field_dictionary)
+# generate the following SQL
+# Insert Into my_table_name (`first_name`) Values ('Joe');
 cursor.execute(qry)
 ```
 
@@ -37,6 +39,8 @@ my_where_dictionary = {
 }
 #  returns SQL string execute.
 qry = PythonSQLGenerator.update('my_table_name', my_field_dictionary, my_where_dictionary)
+# generate the following SQL
+# update my_table_name set `id`=1;
 cursor.execute(qry)
 ```
 
@@ -56,5 +60,7 @@ my_where_dictionary = {
 }
 #  returns SQL string execute.
 qry = PythonSQLGenerator.delete('my_table_name', my_where_dictionary)
+# generate the following SQL
+# delete from my_table_name where id=1;
 cursor.execute(qry)
 ```
