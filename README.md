@@ -18,7 +18,7 @@ my_field_dictionary = {
 qry = PythonSQLGenerator.insert('my_table_name', my_field_dictionary)
 # generate the following SQL
 # Insert Into my_table_name (`first_name`) Values ('Joe');
-cursor.execute(qry)
+cursor.execute(qry['query'], qry['params'])
 ```
 
 Example Update:
