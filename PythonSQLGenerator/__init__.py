@@ -38,26 +38,28 @@ class PythonSQLGenerator():
             table (str): The name of the table to be inserted into
             fields (dict): A dict that contains column names and the values to be inserted
         Returns:
-            string: returns a complete SQL string that can then be executed.
+            dictionary: returns a complete SQL string that can then be executed with parameter formatting.
 
             For example you can return the string and run a db execute.
             qry = PythonSQLGenerator.insert('my_table_name', my_dict)
-            cursor.execute(qry)
+            cursor.execute(qry['query'], qry['params'])
         """
         k = ""
-        v = ""
+        v = ()
         i = 0
+        params = ""
         for key, val in fields.iteritems():
             i += 1
             k += "`" + key + "`"
-            if type(val) == int:
-                v += str(val)
-            else:
-                v += "'" + str(val) + "'"
+            v = v + (val,)
+            params += '%s'
             if i < len(fields):
                 k += ", "
-                v += ", "
-        qry = "Insert Into " + table + " (%s) Values (%s);" % (k, v)
+                params += ", "
+        qry = {
+            'query': "Insert Into " + table + " (%s) Values (%s);" % (k, params),
+            'params': v
+        }
         return qry
 
 
