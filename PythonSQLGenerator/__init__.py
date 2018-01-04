@@ -82,10 +82,7 @@ class PythonSQLGenerator():
         #  loop through fields and set key and value string
         for key, val in fields.iteritems():
             i += 1
-            if type(val) is str:
-                qry += "`" + key + "`='" + val + "'"
-            else:
-                qry += "`" + key + "`=" + str(val)
+            qry += "`" + key + "`='" + str(val) + "'"
             if i < len(fields):
                 qry += ", "
         # if a where clause has been passed, loop through the where dict and set the key value string
