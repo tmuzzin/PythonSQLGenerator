@@ -82,7 +82,8 @@ class PythonSQLGenerator():
         #  loop through fields and set key and value string
         for key, val in fields.iteritems():
             i += 1
-            if val.isnumeric():
+            string_val = unicode(val, 'utf-8')
+            if string_val.isnumeric():
                 qry += "`" + key + "`=" + str(val)
             else:
                 qry += "`" + key + "`='" + val + "'"
