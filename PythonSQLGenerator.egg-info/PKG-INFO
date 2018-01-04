@@ -1,6 +1,6 @@
 Metadata-Version: 1.0
 Name: PythonSQLGenerator
-Version: 0.7
+Version: 0.8
 Summary: SQL generator that converts Python Dict into a SQL query
 Home-page: UNKNOWN
 Author: Tim Muzzin
