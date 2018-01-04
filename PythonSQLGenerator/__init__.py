@@ -79,14 +79,13 @@ class PythonSQLGenerator():
         """
         qry = ""
         i = 0
+        v = ()
+        params = ""
         #  loop through fields and set key and value string
         for key, val in fields.iteritems():
             i += 1
-            string_val = unicode(val, 'utf-8')
-            if string_val.isnumeric():
-                qry += "`" + key + "`=" + str(val)
-            else:
-                qry += "`" + key + "`='" + val + "'"
+            qry += "`" + key + "`=%s"
+            v = v + (val,)
             if i < len(fields):
                 qry += ", "
         # if a where clause has been passed, loop through the where dict and set the key value string
@@ -95,11 +94,16 @@ class PythonSQLGenerator():
             qry += " where "
             for key, val in where.iteritems():
                 i += 1
-                qry += key + "='" + str(val) + "'"
+                qry += key + "=%s"
+                v = v + (val,)
                 if i < len(where):
                     qry += " and "
-        qry = "update " + table + " set %s;" % (qry)
+        qry = {
+            'query': "update " + table + " set %s;" % (qry),
+            'params': v
+        }
         return qry
+
 
 
     @staticmethod
